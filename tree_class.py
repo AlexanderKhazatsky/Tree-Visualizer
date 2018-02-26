@@ -1,0 +1,44 @@
+class Tree:
+    tree_count = 0
+    all_trees = {}
+
+    def __init__(self, label):
+        print(Tree.all_trees)
+        Tree.tree_count += 1
+        self.tree_id = Tree.tree_count
+        self.label = label
+        self.branches = []
+        Tree.all_trees[self.tree_id] = self
+
+    def __repr__(self):
+        if self.is_leaf():
+            return 'Tree({0})'.format(self.label)
+        return 'Tree({0}, {1})'.format(self.label, [b for b in self.branches])
+
+    def delete(self, delete_id):
+        deleted = Tree.all_trees[delete_id]
+        [b.delete(b.tree_id) for b in deleted.branches]
+        del Tree.all_trees[delete_id]
+        if delete_id != self.tree_id:
+            self.branches.remove(deleted)
+
+    def is_leaf(self):
+        return not self.branches
+
+    def add_branch(self, branch_id):
+        new_branch = Tree(branch_id)
+        self.branches += [new_branch]
+
+    def replace_label(self, old, new):
+        if self.label == old:
+            self.label = new
+        if not self.is_leaf():
+            [b.replace_label(old, new) for b in self.branches]
+
+    def print_tree(self, indent=0):
+        print(' ' * indent + self.label)
+        for b in self.branches:
+            b.print_tree(indent + 1)
+
+    def print_code(self):
+        print(self)
