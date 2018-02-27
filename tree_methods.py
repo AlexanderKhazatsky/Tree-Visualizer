@@ -1,4 +1,5 @@
 import tree_class
+import tree_drawer
 
 
 def input_validator(message, options, error_message="Yikes! Command was not found...", type=int):
@@ -11,7 +12,8 @@ def input_validator(message, options, error_message="Yikes! Command was not foun
 
 def create_tree():
     print("You selected: Create a new tree")
-    tree_class.Tree(input("Label: "))
+    label = input("Label: ")
+    tree_class.Tree(label, [])
 
 
 def edit_tree():
@@ -70,7 +72,19 @@ def visualize_tree():
 
     tree_id = input_validator(message, options, error_message)
     tree_to_visualize = tree_class.Tree.all_trees[tree_id]
-    tree_to_visualize.print_tree()
+    tree_drawer.draw_tree(tree_to_visualize)
+
+
+def write_code():
+    print("You selected: Write code manually")
+
+    entered_code = input("Please type your code below:\n")
+    tree_class.run_code(entered_code)
+
+
+def print_trees():
+    print("You selected: Print existing trees")
+    [print("Tree ID: " + str(tree)) for tree_id, tree in tree_class.Tree.all_trees.items()]
 
 
 def print_code():
@@ -85,4 +99,4 @@ def print_code():
 
     tree_id = input_validator(message, options, error_message)
     tree_to_print = tree_class.Tree.all_trees[tree_id]
-    tree_to_print.print_code()
+    print(tree_to_print)

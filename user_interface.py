@@ -7,7 +7,9 @@ while True:
                     "2) Edit an existing tree\n"
                     "3) Visualize a tree\n"
                     "4) Print a tree's code\n"
-                    "5) Quit\n"
+                    "5) Write code manually\n"
+                    "6) Print existing trees\n"
+                    "7) Quit\n"
                     "Option Number: ")
 
     if command == "1":
@@ -19,6 +21,10 @@ while True:
     elif command == "4":
         tree_methods.print_code()
     elif command == "5":
+        tree_methods.write_code()
+    elif command == "6":
+        tree_methods.print_trees()
+    elif command == "7":
         print("Goodbye!")
         break
     else:
