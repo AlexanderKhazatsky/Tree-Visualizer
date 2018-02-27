@@ -84,7 +84,7 @@ def write_code():
 
 def print_trees():
     print("You selected: Print existing trees")
-    [print("Tree ID: " + str(tree)) for tree_id, tree in tree_class.Tree.all_trees.items()]
+    [print("Tree ID: {0}\n{1}".format(tree_id, tree)) for tree_id, tree in tree_class.Tree.all_trees.items()]
 
 
 def print_code():

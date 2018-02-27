@@ -24,10 +24,10 @@ class Screen:
 
 
 def draw_tree(tree_structure):
+    t.reset()
     y_slices = height / tree_structure.vertical_levels()
     starting_screen = Screen(width, height, 0)
     calculate_node(tree_structure, None, y_slices, starting_screen)
-    t.reset()
 
 
 def calculate_node(curr_tree, parent_node, y_slices, curr_screen, radius=50):
