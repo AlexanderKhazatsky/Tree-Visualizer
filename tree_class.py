@@ -48,5 +48,3 @@ class Tree:
 
     def horizontal_levels(self):
         return len(self.branches)
-
-#Tree("hello",[Tree("world",[Tree("god level",[]), Tree("achieved",[Tree("get on my level",[]), Tree("denero",[])])]), Tree("()(0.0)()",[])])
