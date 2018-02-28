@@ -9,8 +9,9 @@ t.speed(5)
 
 
 class Node:
-    def __init__(self, label, x, y, radius=50):
+    def __init__(self, label, tree_id, x, y, radius=50):
         self.label = label
+        self.tree_id = tree_id
         self.x_pos = x
         self.y_pos = y
         self.radius = radius
@@ -34,7 +35,7 @@ def calculate_node(curr_tree, parent_node, y_slices, curr_screen, radius=50):
     x_pos = curr_screen.width / 2 + curr_screen.x_adjuster
     y_pos = curr_screen.height - 2 * radius
 
-    tree_node = Node(curr_tree.label, x_pos, y_pos, radius)
+    tree_node = Node(curr_tree.label, curr_tree.tree_id, x_pos, y_pos, radius)
 
     draw_node(tree_node)
 
@@ -71,5 +72,7 @@ def draw_node(node):
     t.color('yellow')
     t.goto(node.x_pos, node.y_pos + node.radius - (text_size // 2))
     t.write(node.label, align='center', font=('Times New Roman', text_size))
+    t.goto(node.x_pos, node.y_pos + node.radius - 5 * (text_size // 2))
+    t.write(node.tree_id, align='center', font=('Times New Roman', text_size))
     t.goto(node.x_pos, node.y_pos)
     t.color('black')

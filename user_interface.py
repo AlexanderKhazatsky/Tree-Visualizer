@@ -30,4 +30,5 @@ while True:
     else:
         print("Yikes! Command was not found...")
 
-#Tree("hello",[Tree("world",[Tree("god level",[]), Tree("achieved",[Tree("get on my level",[]), Tree("denero",[])])]), Tree("()(0.0)()",[])])
+
+#Tree("hello", [Tree("world", [Tree("it's",[]), Tree("me", [Tree("I was",[]), Tree("wondering",[])])]), Tree("if after", [Tree("cs61a", [Tree("you might",[]), Tree("take", [Tree("cs61b",[])])]), Tree("data structures",[Tree("are easy",[])])])])
