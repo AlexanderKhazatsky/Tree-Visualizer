@@ -40,7 +40,7 @@ def calculate_node(curr_tree, parent_node, y_slices, curr_screen, radius=50):
     draw_node(tree_node)
 
     if curr_tree.branches:
-        level_elements = curr_tree.horizontal_levels()
+        level_elements = curr_tree.horizontal_levels
         new_width = curr_screen.width / level_elements
         new_height = curr_screen.height - y_slices
         horizontal_index = 0

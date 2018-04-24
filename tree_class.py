@@ -1,6 +1,7 @@
 def run_code(code):
     exec(code)
 
+
 class Tree:
     tree_count = 0
     all_trees = {}
@@ -48,3 +49,6 @@ class Tree:
 
     def horizontal_levels(self):
         return len(self.branches)
+
+    def next_horizontal_count(self):
+        return sum([b.horizontal_levels for b in self.branches])
